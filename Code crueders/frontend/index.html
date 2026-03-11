@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MediPulse Healthcare</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<h2 class="logo">MediPulse</h2>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#doctors">Doctors</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<h1>Smart Digital Healthcare</h1>
+
+<p>Appointments, medical records and analytics in one platform.</p>
+
+<button onclick="scrollSection('services')">Explore</button>
+
+</section>
+
+
+<section id="services">
+
+<h2>Services</h2>
+
+<div id="services-container" class="grid"></div>
+
+</section>
+
+
+<section id="doctors">
+
+<h2>Doctors</h2>
+
+<div id="doctor-container" class="grid"></div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<form onsubmit="sendMessage(event)">
+
+<input type="text" placeholder="Name" required>
+
+<input type="email" placeholder="Email" required>
+
+<textarea placeholder="Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+<p>© MediPulse Platform</p>
+
+</footer>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
