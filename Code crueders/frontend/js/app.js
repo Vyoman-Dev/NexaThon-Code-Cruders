@@ -1,82 +1,50 @@
-function scrollSection(id){
+const API="http://localhost:5000"
 
-document.getElementById(id).scrollIntoView({
-behavior:"smooth"
-})
+function triggerSOS(){
 
-}
-
-
-function sendMessage(e){
-
-e.preventDefault()
-
-alert("Message sent successfully!")
+alert("SOS Alert Sent to Nearby Hospitals")
 
 }
 
 
-async function loadServices(){
+async function findDonor(){
 
-const container=document.getElementById("services-container")
+const type=document.getElementById("bloodType").value
 
-const res=await fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
+const res=await fetch(`${API}/donors/${type}`)
 
 const data=await res.json()
 
-data.forEach(service=>{
+document.getElementById("donorResult").innerHTML=
 
-const card=document.createElement("div")
+data.map(d=>`<p>${d.name} - ${d.phone}</p>`).join("")
 
-card.className="card"
+}
 
-card.innerHTML=`
 
-<img src="https://picsum.photos/300/200?random=${service.id}">
+async function checkBeds(){
 
-<h3>${service.title}</h3>
+const res=await fetch(`${API}/hospitals`)
 
-<p>${service.body}</p>
+const data=await res.json()
 
-`
+document.getElementById("hospitalResult").innerHTML=
 
-container.appendChild(card)
-
-})
+data.map(h=>`<p>${h.name} ICU:${h.icu}</p>`).join("")
 
 }
 
 
 async function loadDoctors(){
 
-const container=document.getElementById("doctor-container")
-
-const res=await fetch("https://jsonplaceholder.typicode.com/users")
+const res=await fetch(`${API}/doctors`)
 
 const data=await res.json()
 
-data.slice(0,4).forEach(doc=>{
+document.getElementById("doctorList").innerHTML=
 
-const card=document.createElement("div")
-
-card.className="card"
-
-card.innerHTML=`
-
-<img src="https://i.pravatar.cc/300?img=${doc.id}">
-
-<h3>${doc.name}</h3>
-
-<p>${doc.email}</p>
-
-`
-
-container.appendChild(card)
-
-})
+data.map(d=>`<p>${d.name} - ${d.specialization}</p>`).join("")
 
 }
 
-
-loadServices()
 loadDoctors()
