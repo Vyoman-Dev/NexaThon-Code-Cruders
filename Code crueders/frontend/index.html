@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MediPulse Healthcare</title>
-
+<title>MediPulse</title>
 <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-<header class="navbar">
-
-<h2 class="logo">MediPulse</h2>
+<header>
+<h1>MediPulse Healthcare Platform</h1>
 
 <nav>
-
-<a href="#">Home</a>
 <a href="#services">Services</a>
 <a href="#doctors">Doctors</a>
-<a href="#contact">Contact</a>
-
+<a href="#donor">Blood Donor</a>
+<a href="#hospital">Hospitals</a>
 </nav>
 
 </header>
@@ -32,11 +22,9 @@
 
 <section class="hero">
 
-<h1>Smart Digital Healthcare</h1>
+<h2>Emergency Healthcare Support</h2>
 
-<p>Appointments, medical records and analytics in one platform.</p>
-
-<button onclick="scrollSection('services')">Explore</button>
+<button onclick="triggerSOS()">SOS Emergency</button>
 
 </section>
 
@@ -45,7 +33,18 @@
 
 <h2>Services</h2>
 
-<div id="services-container" class="grid"></div>
+<div class="card">
+<h3>Find Blood Donor</h3>
+<input id="bloodType" placeholder="Enter blood group">
+<button onclick="findDonor()">Search</button>
+<div id="donorResult"></div>
+</div>
+
+<div class="card">
+<h3>Hospital Beds</h3>
+<button onclick="checkBeds()">Check Availability</button>
+<div id="hospitalResult"></div>
+</div>
 
 </section>
 
@@ -53,37 +52,16 @@
 <section id="doctors">
 
 <h2>Doctors</h2>
-
-<div id="doctor-container" class="grid"></div>
-
-</section>
-
-
-<section id="contact">
-
-<h2>Contact Us</h2>
-
-<form onsubmit="sendMessage(event)">
-
-<input type="text" placeholder="Name" required>
-
-<input type="email" placeholder="Email" required>
-
-<textarea placeholder="Message"></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
+<div id="doctorList"></div>
 
 </section>
 
 
 <footer>
 
-<p>© MediPulse Platform</p>
+<p>Emergency Numbers India: 112 | Ambulance 108</p>
 
 </footer>
-
 
 <script src="js/app.js"></script>
 
